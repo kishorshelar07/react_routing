@@ -1,0 +1,106 @@
+/* Sidebar container */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 200px;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+  font-family: Arial, sans-serif;
+  transition: width 0.3s ease;
+}
+
+/* Sidebar when closed */
+.sidebar.closed {
+  width: 60px; /* Narrow width when closed */
+}
+
+/* Sidebar content visibility */
+.sidebar-content {
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+
+.sidebar-content.hidden {
+  opacity: 0;
+  visibility: hidden; /* Hide content when sidebar is closed */
+}
+
+/* Sidebar title */
+.sidebar-title {
+  font-size: 1.5rem;
+  margin-bottom: 60px;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Navigation links */
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Spacing between links */
+}
+
+.sidebar nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 10px 15px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+/* Hover effect */
+.sidebar nav a:hover {
+  background-color: #575757;
+}
+
+/* Active link styling (optional) */
+.sidebar nav a.active {
+  background-color: #007BFF;
+}
+
+/* Sidebar toggle button (Fixed on the top-right corner of the sidebar) */
+.sidebar-toggle-btn {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  position: absolute;
+  top: 5px; /* Distance from the top */
+  right: 20px; /* Distance from the right */
+  z-index: 10; /* Make sure button stays above the sidebar */
+}
+
+/* Main content area */
+.main-content {
+  margin-left: 250px; /* When sidebar is open */
+  transition: margin-left 0.3s ease;
+}
+
+.main-content.sidebar-closed {
+  margin-left: 60px; /* When sidebar is closed */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 150px;
+  }
+  .sidebar nav a {
+    font-size: 0.9rem;
+    padding: 8px 10px;
+  }
+
+  .main-content {
+    margin-left: 150px; /* Adjusted for smaller screen */
+  }
+
+  .main-content.sidebar-closed {
+    margin-left: 60px;
+  }
+}

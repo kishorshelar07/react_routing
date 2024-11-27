@@ -4,15 +4,13 @@
     color: #333;
     padding: 20px;
     background-color: #f9f9f9;
-    margin-left: 180px;
   }
   
   /* Hero section */
   .hero-section {
     text-align: center;
     padding: 50px 20px;
-    background-color: #007BFF;
-    color: white;
+    background: radial-gradient(circle at 12.3% 19.3%, rgb(85, 88, 218) 0%, rgb(95, 209, 249) 100.2%);    color: white;
     border-radius: 8px;
     margin-bottom: 30px;
   }

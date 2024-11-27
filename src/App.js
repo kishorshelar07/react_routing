@@ -1,20 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Home from './Home';
-import About from './About';
-import Contact from './Contact';
-import Services from './Services';
-import Portfolio from './Portfolio';
-import Team from './Team';
-import FAQ from './Faq';
-import Blog from './Blog';
-import Sidebar from './Sidebar'; // Import Sidebar component
+import Home from './components/Home';
+import About from './components/About';
+import Contact from './components/Contact';
+import Services from './components/Services';
+import Portfolio from './components/Portfolio';
+import Team from './components/Team';
+import FAQ from './components/Faq';
+import Blog from './components/Blog';
+import Sidebar from './components/Sidebar'; // Import Sidebar component
 
 function App() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true); // State to control sidebar visibility
+
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen); // Toggle sidebar visibility
+  };
+
   return (
     <div className="app-container">
-      <Sidebar />
-      <div className="main-content">
+      <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} /> {/* Pass state to Sidebar */}
+      <div className={`main-content ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />

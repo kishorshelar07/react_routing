@@ -9,7 +9,7 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
       {/* Toggle Button */}
       <button className="sidebar-toggle-btn" onClick={toggleSidebar}>
         <i className={`bi ${isOpen ? 'bi-x' : 'bi-list'}`}></i>  {/* Icon changes based on isOpen */}
-      </button><br/>
+      </button><br/><br/><hr/>
 
       <div className="sidebar-content">
         {/* Navigation Links */}

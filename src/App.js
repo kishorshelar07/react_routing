@@ -19,6 +19,7 @@ function App() {
 
   return (
     <div className="app-container">
+      
       <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} /> {/* Pass state to Sidebar */}
       <div className={`main-content ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
         <Routes>

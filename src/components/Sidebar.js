@@ -5,25 +5,50 @@ import './Sidebar.css'; // Import CSS for styling
 const Sidebar = ({ isOpen, toggleSidebar }) => {
   return (
     <div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
-      {/* Sidebar content (links and title) */}
-      <div className={`sidebar-content ${isOpen ? 'visible' : 'hidden'}`}>
-        <h2 className="sidebar-title"></h2>
+      {/* Sidebar content */}
+       {/* Toggle Button */}
+       <button className="sidebar-toggle-btn" onClick={toggleSidebar}>
+        <i className={`bi ${isOpen ? 'bi-x' : 'bi-list'}`}></i>
+      </button><br/>
+      <div className="sidebar-content">
+        
         <nav>
-          <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
-          <Link to="/services">Services</Link>
-          <Link to="/portfolio">Portfolio</Link>
-          <Link to="/team">Team</Link>
-          <Link to="/contact">Contact</Link>
-          <Link to="/faq">FAQ</Link>
-          <Link to="/blog">Blog</Link>
+          <Link to="/">
+            <i className="bi bi-house"></i>
+            {isOpen && <span>Home</span>}
+          </Link>
+          <Link to="/about">
+            <i className="bi bi-person"></i>
+            {isOpen && <span>About</span>}
+          </Link>
+          <Link to="/services">
+            <i className="bi bi-gear"></i>
+            {isOpen && <span>Services</span>}
+          </Link>
+          <Link to="/portfolio">
+            <i className="bi bi-grid"></i>
+            {isOpen && <span>Portfolio</span>}
+          </Link>
+          <Link to="/team">
+            <i className="bi bi-people"></i>
+            {isOpen && <span>Team</span>}
+          </Link>
+          <Link to="/contact">
+            <i className="bi bi-envelope"></i>
+            {isOpen && <span>Contact</span>}
+          </Link>
+          <Link to="/faq">
+            <i className="bi bi-question-circle"></i>
+            {isOpen && <span>FAQ</span>}
+          </Link>
+          <Link to="/blog">
+            <i className="bi bi-journal"></i>
+            {isOpen && <span>Blog</span>}
+          </Link>
         </nav>
       </div>
 
-      {/* Toggle Button (Fixed on the top-right corner of the sidebar) */}
-      <button className="sidebar-toggle-btn" onClick={toggleSidebar}>
-        <i className={`bi ${isOpen ? 'bi-x' : 'bi-list'}`}></i>
-      </button>
+     
     </div>
   );
 };

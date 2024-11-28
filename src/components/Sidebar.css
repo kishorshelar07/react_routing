@@ -4,7 +4,7 @@
   top: 0;
   left: 0;
   height: 100%;
-  width: 200px;
+  width: 250px;
   background-color: #333;
   color: white;
   padding: 20px;
@@ -15,7 +15,7 @@
 
 /* Sidebar when closed */
 .sidebar.closed {
-  width: 60px; /* Narrow width when closed */
+  width: 80px; /* Narrow width when closed */
 }
 
 /* Sidebar content visibility */
@@ -45,12 +45,20 @@
 }
 
 .sidebar nav a {
-  color: white;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between icon and text */
   text-decoration: none;
+  color: inherit;
   font-size: 1rem;
   padding: 10px 15px;
   border-radius: 4px;
   transition: background-color 0.3s ease;
+}
+
+/* Hide text when sidebar is closed */
+.sidebar.closed nav a span {
+  display: none;
 }
 
 /* Hover effect */
@@ -63,16 +71,17 @@
   background-color: #007BFF;
 }
 
-/* Sidebar toggle button (Fixed on the top-right corner of the sidebar) */
+/* Sidebar toggle button */
 .sidebar-toggle-btn {
   background-color: transparent;
   border: none;
+  align-items: center;
   color: white;
   font-size: 2rem;
   cursor: pointer;
   position: absolute;
   top: 5px; /* Distance from the top */
-  right: 20px; /* Distance from the right */
+  right: 12px; /* Distance from the right */
   z-index: 10; /* Make sure button stays above the sidebar */
 }
 
@@ -91,9 +100,13 @@
   .sidebar {
     width: 150px;
   }
+  .sidebar.closed {
+    width: 80px; /* Keep same closed width on smaller screens */
+  }
   .sidebar nav a {
     font-size: 0.9rem;
     padding: 8px 10px;
+    
   }
 
   .main-content {

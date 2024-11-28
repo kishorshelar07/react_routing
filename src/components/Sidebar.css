@@ -1,6 +1,5 @@
 /* Sidebar container */
-.sidebar {
-  
+.sidebar { 
   position: fixed;
   top: 0;
   left: 0;
@@ -56,7 +55,7 @@
   text-decoration: none;
   color: inherit;
   font-size: 1.1rem;
-  padding: 12px 20px;
+  padding: 12px 12px;
   border-radius: 30px; /* Rounded corners for links */
   transition: all 0.3s ease;
   position: relative;

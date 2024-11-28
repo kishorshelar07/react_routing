@@ -1,7 +1,8 @@
-import React from 'react';
-import './FAQ.css';
+import React from 'react';  // Importing React library
+import './FAQ.css';  // Importing the CSS file for styling
 
 const FAQ = () => {
+  // Array of FAQ data with questions and answers
   const faqData = [
     {
       question: 'What services do you offer?',
@@ -38,13 +39,15 @@ const FAQ = () => {
   ];
 
   return (
-    <div className="faq-page">
-      <h1 className="faq-heading">Frequently Asked Questions</h1>
-      <div className="faq-list">
+    <div className="faq-page">  {/* Container for the FAQ page */}
+      <h1 className="faq-heading">Frequently Asked Questions</h1>  {/* Main heading of the FAQ page */}
+      
+      <div className="faq-list">  {/* Container for all the FAQ items */}
+        {/* Loop through the faqData array and display each question and answer */}
         {faqData.map((faq, index) => (
-          <div className="faq-item" key={index}>
-            <h3>{faq.question}</h3>
-            <p>{faq.answer}</p>
+          <div className="faq-item" key={index}>  {/* Each FAQ item with a unique key */}
+            <h3>{faq.question}</h3>  {/* Display the question */}
+            <p>{faq.answer}</p>  {/* Display the answer */}
           </div>
         ))}
       </div>
@@ -52,4 +55,4 @@ const FAQ = () => {
   );
 };
 
-export default FAQ;
+export default FAQ;  // Export the FAQ component for use in other parts of the app

@@ -1,7 +1,8 @@
-import React from 'react';
-import './Services.css';
+import React from 'react';  // Importing React library
+import './Services.css';  // Importing the CSS file for styling
 
 const Services = () => {
+  // Array of services with title, description, and call-to-action
   const services = [
     { title: 'Web Development', description: 'We build modern and responsive websites tailored to your needs.' },
     { title: 'Mobile App Development', description: 'Create seamless and high-performing mobile applications.' },
@@ -15,14 +16,16 @@ const Services = () => {
   ];
 
   return (
-    <div className="services-page">
-      <h1 className="services-heading">Our Services</h1>
-      <div className="services-list">
+    <div className="services-page">  {/* Main container for the Services page */}
+      <h1 className="services-heading">Our Services</h1>  {/* Heading for the Services section */}
+      
+      <div className="services-list">  {/* Container for the list of services */}
+        {/* Loop through the services array and render each service */}
         {services.map((service, index) => (
-          <div className="service-item" key={index}>
-            <h3>{service.title}</h3>
-            <p>{service.description}</p>
-            <button className="cta-btn">Learn More</button>
+          <div className="service-item" key={index}>  {/* Each service item with a unique key */}
+            <h3>{service.title}</h3>  {/* Display the title of the service */}
+            <p>{service.description}</p>  {/* Display the description of the service */}
+            <button className="cta-btn">Learn More</button>  {/* Button to learn more about the service */}
           </div>
         ))}
       </div>
@@ -30,4 +33,4 @@ const Services = () => {
   );
 };
 
-export default Services;
+export default Services;  // Export the Services component for use in other parts of the app

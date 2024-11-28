@@ -5,12 +5,12 @@
   left: 0;
   height: 100%;
   width: 250px;
-  background-color: #333;
+  background: linear-gradient(to right, #4c6ef5, #2a56c6); /* Gradient background */
   color: white;
   padding: 20px;
-  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-  font-family: Arial, sans-serif;
-  transition: width 0.3s ease;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3); /* Slightly larger shadow for depth */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: width 0.3s ease, box-shadow 0.3s ease;
 }
 
 /* Sidebar when closed */
@@ -30,11 +30,15 @@
 
 /* Sidebar title */
 .sidebar-title {
-  font-size: 1.5rem;
+  font-size: 1.7rem;
   margin-bottom: 60px;
-  color: white;
+  color: #fff;
   text-align: center;
-  font-weight: bold;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #fff; /* Underline effect */
+  padding-bottom: 10px;
 }
 
 /* Navigation links */
@@ -47,28 +51,37 @@
 .sidebar nav a {
   display: flex;
   align-items: center;
-  gap: 10px; /* Space between icon and text */
+  gap: 15px; /* Increased space between icon and text */
   text-decoration: none;
   color: inherit;
-  font-size: 1rem;
-  padding: 10px 15px;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-}
-
-/* Hide text when sidebar is closed */
-.sidebar.closed nav a span {
-  display: none;
+  font-size: 1.1rem;
+  padding: 12px 20px;
+  border-radius: 30px; /* Rounded corners for links */
+  transition: all 0.3s ease;
+  position: relative;
 }
 
 /* Hover effect */
 .sidebar nav a:hover {
-  background-color: #575757;
+  background-color: #ffffff1f; /* Light background on hover */
+  transform: scale(1.05); /* Slight scale effect */
 }
 
-/* Active link styling (optional) */
 .sidebar nav a.active {
-  background-color: #007BFF;
+  background-color: #007bff; /* Active link color */
+  color: white;
+}
+
+.sidebar nav a span {
+  font-weight: 500;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Hide text when sidebar is closed */
+.sidebar.closed nav a span {
+  opacity: 0; /* Fades out text */
+  visibility: hidden; /* Ensures text is completely hidden */
 }
 
 /* Sidebar toggle button */
@@ -77,12 +90,17 @@
   border: none;
   align-items: center;
   color: white;
-  font-size: 2rem;
+  font-size: 2.2rem; /* Increased font size */
   cursor: pointer;
   position: absolute;
-  top: 5px; /* Distance from the top */
-  right: 12px; /* Distance from the right */
-  z-index: 10; /* Make sure button stays above the sidebar */
+  top: 20px; /* Distance from the top */
+  right: 20px; /* Distance from the right */
+  z-index: 10; /* Ensure button stays above the sidebar */
+  transition: transform 0.3s ease;
+}
+
+.sidebar-toggle-btn:hover {
+  transform: rotate(90deg); /* Rotate the button on hover for a fun effect */
 }
 
 /* Main content area */
@@ -98,19 +116,18 @@
 /* Responsive design */
 @media (max-width: 768px) {
   .sidebar {
-    width: 150px;
+    width: 200px; /* Slightly smaller width for mobile */
   }
   .sidebar.closed {
-    width: 80px; /* Keep same closed width on smaller screens */
+    width: 80px;
   }
   .sidebar nav a {
-    font-size: 0.9rem;
-    padding: 8px 10px;
-    
+    font-size: 0.95rem; /* Adjust font size on small screens */
+    padding: 8px 15px;
   }
 
   .main-content {
-    margin-left: 150px; /* Adjusted for smaller screen */
+    margin-left: 200px;
   }
 
   .main-content.sidebar-closed {

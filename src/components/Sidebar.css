@@ -1,136 +1,110 @@
 /* Sidebar container */
-.sidebar { 
+.sidebar {
   position: fixed;
   top: 0;
   left: 0;
   height: 100%;
   width: 250px;
-  background: linear-gradient(90deg, #4e54c8, #8f94fb);
-  color: white;
-  padding: 20px;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3); /* Slightly larger shadow for depth */
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  transition: width 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(90deg, #4e54c8, #8f94fb);  color: white;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  z-index: 1000;
 }
 
-/* Sidebar when closed */
+.sidebar.open {
+  transform: translateX(0);
+}
+
 .sidebar.closed {
-  width: 80px; /* Narrow width when closed */
+  transform: translateX(-100%);
 }
 
-/* Sidebar content visibility */
+/* Sidebar toggle button inside the sidebar */
+.sidebar-toggle-btn {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  position: absolute;
+  top: 5px;
+  right: -50px;
+  cursor: pointer;
+}
+
 .sidebar-content {
-  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
-}
-
-.sidebar-content.hidden {
-  opacity: 0;
-  visibility: hidden; /* Hide content when sidebar is closed */
-}
-
-/* Sidebar title */
-.sidebar-title {
-  font-size: 1.7rem;
-  margin-bottom: 60px;
-  color: #fff;
-  text-align: center;
-  font-weight: 600;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  border-bottom: 2px solid #fff; /* Underline effect */
-  padding-bottom: 10px;
-}
-
-/* Navigation links */
-.sidebar nav {
-  display: flex;
-  flex-direction: column;
-  gap: 15px; /* Spacing between links */
+  padding: 20px;
 }
 
 .sidebar nav a {
   display: flex;
   align-items: center;
-  gap: 15px; /* Increased space between icon and text */
-  text-decoration: none;
-  color: inherit;
-  font-size: 1.1rem;
-  padding: 12px 12px;
-  border-radius: 30px; /* Rounded corners for links */
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-/* Hover effect */
-.sidebar nav a:hover {
-  background-color: #ffffff1f; /* Light background on hover */
-  transform: scale(1.05); /* Slight scale effect */
-}
-
-.sidebar nav a.active {
-  background-color: #007bff; /* Active link color */
   color: white;
+  text-decoration: none;
+  margin: 10px 0;
+  padding: 10px;
+  transition: background 0.8s ease;
+}
+
+.sidebar nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar nav a i {
+  margin-right: 10px;
 }
 
 .sidebar nav a span {
-  font-weight: 500;
-  opacity: 1;
-  transition: opacity 0.3s ease;
+  display: inline-block;
 }
 
-/* Hide text when sidebar is closed */
-.sidebar.closed nav a span {
-  opacity: 0; /* Fades out text */
-  visibility: hidden; /* Ensures text is completely hidden */
-}
-
-/* Sidebar toggle button */
-.sidebar-toggle-btn {
-  background-color: transparent;
-  border: none;
+/* Navbar styles */
+.navbar {
+  height: 60px;
+  background: #4e54c8;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
   color: white;
-  font-size: 2.2rem; /* Increased font size */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  position: fixed; /* Fix it at the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.navbar.hidden {
+  transform: translateY(-100%); /* Slide navbar out of view */
+  opacity: 0; /* Make it invisible */
+}
+
+.navbar-toggle-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
   cursor: pointer;
-  position: absolute;
-  top: 20px; /* Distance from the top */
-  right: 20px; /* Distance from the right */
-  z-index: 10; /* Ensure button stays above the sidebar */
-  transition: transform 0.3s ease;
 }
 
-.sidebar-toggle-btn:hover {
-  transform: rotate(90deg); /* Rotate the button on hover for a fun effect */
-}
-
-/* Main content area */
-.main-content {
-  margin-left: 250px; /* When sidebar is open */
-  transition: margin-left 0.3s ease;
-}
-
-.main-content.sidebar-closed {
-  margin-left: 60px; /* When sidebar is closed */
+.navbar-title {
+  font-size: 1.5rem;
 }
 
 /* Responsive design */
 @media (max-width: 768px) {
   .sidebar {
-    width: 200px; /* Slightly smaller width for mobile */
+    width: 200px;
   }
+
   .sidebar.closed {
-    width: 80px;
+    transform: translateX(-100%);
   }
+
   .sidebar nav a {
-    font-size: 0.95rem; /* Adjust font size on small screens */
+    font-size: 0.95rem;
     padding: 8px 15px;
   }
-
-  .main-content {
-    margin-left: 200px;
-  }
-
-  .main-content.sidebar-closed {
-    margin-left: 60px;
-  }
 }
+

@@ -20,6 +20,7 @@ const Sidebar = () => {
         <h1 className="navbar-title">My App</h1>
       </nav>
       {/* Sidebar */}
+   
       <div className={`sidebar ${isOpen ? 'open' : 'closed'}`}>
         {/* Toggle Button */}
         <button className="sidebar-toggle-btn" onClick={toggleSidebar}>

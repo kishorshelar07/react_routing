@@ -1,7 +1,7 @@
 /* About Page Container */
 .about-page {
-  max-width: 1200px;
-  margin: 10px;
+  max-width: 100%;
+  margin: 2px;
   padding: 40px 20px;
   background: linear-gradient(to bottom, #ffffff, #f0f4f8);
   border-radius: 16px;

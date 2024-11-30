@@ -10,6 +10,8 @@ import FAQ from './components/Faq';
 import Blog from './components/Blog';
 import Sidebar from './components/Sidebar'; // Import Sidebar component
 import './App.css';
+import Footer from './components/Footer';
+
 function App() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true); // State to control sidebar visibility
 
@@ -31,6 +33,7 @@ function App() {
           <Route path="/faq" element={<FAQ />} />
           <Route path="/blog" element={<Blog />} />
         </Routes>
+        <Footer />
       </div>
     </div>
   );

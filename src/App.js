@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom'; // Import Navigate component
 import Home from './components/Home';
 import About from './components/About';
 import Contact from './components/Contact';
@@ -24,7 +24,7 @@ function App() {
       <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} /> {/* Pass state to Sidebar */}      
       <div className={`main-content ${isSidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />} />  {/* Home is the default route */}
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/services" element={<Services />} />
@@ -32,6 +32,8 @@ function App() {
           <Route path="/team" element={<Team />} />
           <Route path="/faq" element={<FAQ />} />
           <Route path="/blog" element={<Blog />} />
+          {/* You can also add a fallback route if needed */}
+          <Route path="*" element={<Navigate to="/" />} /> {/* Redirects to Home if no route matches */}
         </Routes>
         <Footer />
       </div>
